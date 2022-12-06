@@ -9,15 +9,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{3286E5CF-D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{E36B4314-79FE-4799-8147-CA52EFA0FD34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{393B48F8-22C9-4DCA-BB6A-594643FCD0AB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{393B48F8-22C9-4DCA-BB6A-594643FCD0AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{7C67C3C2-01F0-4A61-BD59-FB51FC91E151}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{7C67C3C2-01F0-4A61-BD59-FB51FC91E151}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devLog.API", "devLog.API\devLog.API.csproj", "{C9989C91-6C55-4DC0-AAC9-766A446D61CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devLog.API", "devLog.API\devLog.API.csproj", "{C9989C91-6C55-4DC0-AAC9-766A446D61CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Persistence\Persistence.csproj", "{148B6F09-890F-4BBB-A6DF-76B42C5586AE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Persistence\Persistence.csproj", "{148B6F09-890F-4BBB-A6DF-76B42C5586AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{402CA8A9-232D-454E-917B-64B16E5B0F4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{402CA8A9-232D-454E-917B-64B16E5B0F4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7796D90E-77FD-4F2A-9520-29C712102287}"
+	ProjectSection(SolutionItems) = preProject
+		Readme.md = Readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
