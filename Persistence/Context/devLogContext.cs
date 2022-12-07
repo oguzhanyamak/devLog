@@ -12,6 +12,10 @@ namespace Application.Context
 {
     public class devLogContext : IdentityDbContext<Kullanici,Role,string>
     {
+        public devLogContext(DbContextOptions options) : base(options)
+        {
+        }
+
         public DbSet<BakimBilgisi> BakimBilgileri { get; set; }
         public DbSet<Dorse> Dorseler { get; set; }
         public DbSet<Tir> Tirlar { get; set; }
@@ -25,7 +29,7 @@ namespace Application.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Server=localhost;Database=devLog;User Id=sa;Password=Password1;");
+            //optionsBuilder.UseSqlServer("Server=localhost;Database=devLog;User Id=sa;Password=Password1;");
         }
     }
 }
