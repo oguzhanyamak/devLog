@@ -17,7 +17,7 @@ builder.Services.AddPersistenceServices();
 builder.Services.AddInfrastructureServices();
 builder.Services.ApplicationServices();
 builder.Services.AddInfrastructureServices();
-
+builder.Services.AddCors(options => options.AddDefaultPolicy(policiy => policiy.WithOrigins("http://localhost:4200", "https://localhost:4200").AllowAnyHeader().AllowCredentials().AllowAnyMethod()));
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -52,7 +52,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseCors();
 app.MapControllers();
 
 app.Run();
