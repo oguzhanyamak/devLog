@@ -9,7 +9,7 @@ namespace Core.Entities
 {
     public class Kullanici : IdentityUser<string>
     {
-        public string TirId { get; set; }
+        public string? TirId { get; set; }
         public virtual Tir? Tir { get; set; }
     }
 }

@@ -35,7 +35,7 @@ namespace Persistence.Migrations
                     Turu = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Durum = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     DorseTemsiliResim = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    OlusturulmaTarihi = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 6, 22, 9, 45, 904, DateTimeKind.Local).AddTicks(1847))
+                    OlusturulmaTarihi = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 9, 17, 59, 0, 106, DateTimeKind.Local).AddTicks(8023))
                 },
                 constraints: table =>
                 {
@@ -57,7 +57,7 @@ namespace Persistence.Migrations
                     BeygirGucu = table.Column<int>(type: "int", nullable: false),
                     VitesTuru = table.Column<bool>(type: "bit", nullable: false),
                     YakıtTuru = table.Column<bool>(type: "bit", nullable: false),
-                    OlusturulmaTarihi = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 6, 22, 9, 45, 904, DateTimeKind.Local).AddTicks(2842))
+                    OlusturulmaTarihi = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 9, 17, 59, 0, 107, DateTimeKind.Local).AddTicks(4243))
                 },
                 constraints: table =>
                 {
@@ -91,7 +91,7 @@ namespace Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    TirId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    TirId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -114,8 +114,7 @@ namespace Persistence.Migrations
                         name: "FK_AspNetUsers_Tirlar_TirId",
                         column: x => x.TirId,
                         principalTable: "Tirlar",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -128,7 +127,7 @@ namespace Persistence.Migrations
                     Plaka = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BakimAciklamasi = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GuncelKMBilgisi = table.Column<long>(type: "bigint", nullable: false),
-                    OlusturulmaTarihi = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 6, 22, 9, 45, 903, DateTimeKind.Local).AddTicks(6949))
+                    OlusturulmaTarihi = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 9, 17, 59, 0, 104, DateTimeKind.Local).AddTicks(7462))
                 },
                 constraints: table =>
                 {
@@ -160,7 +159,7 @@ namespace Persistence.Migrations
                     Ucret = table.Column<long>(type: "bigint", nullable: false),
                     YukDetayAciklama = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Durum = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
-                    OlusturulmaTarihi = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 6, 22, 9, 45, 904, DateTimeKind.Local).AddTicks(5537))
+                    OlusturulmaTarihi = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2022, 12, 9, 17, 59, 0, 107, DateTimeKind.Local).AddTicks(9243))
                 },
                 constraints: table =>
                 {
@@ -298,7 +297,8 @@ namespace Persistence.Migrations
                 name: "IX_AspNetUsers_TirId",
                 table: "AspNetUsers",
                 column: "TirId",
-                unique: true);
+                unique: true,
+                filter: "[TirId] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",

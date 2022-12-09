@@ -1,14 +1,17 @@
-﻿using Application.Context;
+﻿using Application.Abstraction;
+using Application.Context;
 using Application.Repositories.Bakim;
 using Application.Repositories.Dorse;
 using Application.Repositories.Tir;
 using Application.Repositories.Yuk;
+using Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Persistence.Repositories.Bakim;
 using Persistence.Repositories.Dorse;
 using Persistence.Repositories.Tir;
 using Persistence.Repositories.Yuk;
+using Persistence.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +25,10 @@ namespace Persistence.Extension
     {
         public static void AddPersistenceServices(this IServiceCollection services)
         {
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAuthService, AuthService>();
             services.AddDbContext<devLogContext>(options => options.UseSqlServer("Server=localhost;Database=devLog;User Id=sa;Password=Password1;"));
+            services.AddIdentity<Kullanici, Role>().AddEntityFrameworkStores<devLogContext>();
             services.AddScoped<ITirReadRepository, TirReadRepository>();
             services.AddScoped<ITirWriteRepository, TirWriteRepository>();
 
@@ -34,6 +40,8 @@ namespace Persistence.Extension
 
             services.AddScoped<IBakimReadRepository, BakimReadRepository>();
             services.AddScoped<IBakimWriteRepository, BakimWriteRepository>();
+
+
         }
     }
 }

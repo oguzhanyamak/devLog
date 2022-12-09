@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(devLogContext))]
-    [Migration("20221206190946_mig_1")]
+    [Migration("20221209145900_mig_1")]
     partial class mig_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -42,7 +42,7 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("OlusturulmaTarihi")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 6, 22, 9, 45, 903, DateTimeKind.Local).AddTicks(6949));
+                        .HasDefaultValue(new DateTime(2022, 12, 9, 17, 59, 0, 104, DateTimeKind.Local).AddTicks(7462));
 
                     b.Property<string>("Plaka")
                         .IsRequired()
@@ -81,7 +81,7 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("OlusturulmaTarihi")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 6, 22, 9, 45, 904, DateTimeKind.Local).AddTicks(1847));
+                        .HasDefaultValue(new DateTime(2022, 12, 9, 17, 59, 0, 106, DateTimeKind.Local).AddTicks(8023));
 
                     b.Property<string>("Plaka")
                         .IsRequired()
@@ -152,7 +152,6 @@ namespace Persistence.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TirId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("TwoFactorEnabled")
@@ -173,7 +172,8 @@ namespace Persistence.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.HasIndex("TirId")
-                        .IsUnique();
+                        .IsUnique()
+                        .HasFilter("[TirId] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -227,7 +227,7 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("OlusturulmaTarihi")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 6, 22, 9, 45, 904, DateTimeKind.Local).AddTicks(2842));
+                        .HasDefaultValue(new DateTime(2022, 12, 9, 17, 59, 0, 107, DateTimeKind.Local).AddTicks(4243));
 
                     b.Property<string>("Plaka")
                         .IsRequired()
@@ -285,7 +285,7 @@ namespace Persistence.Migrations
                     b.Property<DateTime>("OlusturulmaTarihi")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 6, 22, 9, 45, 904, DateTimeKind.Local).AddTicks(5537));
+                        .HasDefaultValue(new DateTime(2022, 12, 9, 17, 59, 0, 107, DateTimeKind.Local).AddTicks(9243));
 
                     b.Property<string>("TirId")
                         .HasColumnType("nvarchar(450)");
@@ -435,9 +435,7 @@ namespace Persistence.Migrations
                 {
                     b.HasOne("Core.Entities.Tir", "Tir")
                         .WithOne("Kullanici")
-                        .HasForeignKey("Core.Entities.Kullanici", "TirId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Core.Entities.Kullanici", "TirId");
 
                     b.Navigation("Tir");
                 });
